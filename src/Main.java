@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
@@ -90,31 +91,8 @@ public class Main {
             }
 
         } while (!opcao.equals("exit"));
-
-
-//        sistema.pwd();
-//        sistema.ls();
-//        sistema.touch("artigo.pdf", 4, usuario);
-//        sistema.mkdir("musicas");
-//        sistema.cd("musicas");
-//        dir.setNome("musicas");
-//        sistema.pwd();
-//        sistema.touch("musica1.mp3", 8, usuario);
-////        sistema.touch("musica3.mp3", 8, usuario);
-////        sistema.touch("musica4.mp3", 8, usuario);
-//        sistema.ls();
-////        sistema.cd("..");
-//        sistema.cd("..");
-////        System.out.println(sistema.getDir().getArquivos());
-//        sistema.rm("artigo.pdf");
-//        sistema.ls();
-//        sistema.touch("musica2.mp3", 8, usuario);
-//        sistema.ls();
-//        System.out.println(sistema.getMemoria());
-//        sistema.rmdir("musicas");
-////        sistema.ls();
-//
-//        ler.close();
+        
+        ler.close();
     }
 
     public static void clear() {
