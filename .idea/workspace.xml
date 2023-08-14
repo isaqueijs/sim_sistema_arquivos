@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b411f8d-b295-4fa0-bb68-07f99ce66e83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sim_sistema_arquivos.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Arquivo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Bloco.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Diretorio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Memoria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SistemaArquivos.java" afterDir="false" />
-    </list>
+    <list default="true" id="9b411f8d-b295-4fa0-bb68-07f99ce66e83" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +64,7 @@
       <updated>1691791884684</updated>
       <workItem from="1691791885708" duration="4559000" />
       <workItem from="1691962815676" duration="9901000" />
-      <workItem from="1691974663606" duration="29177000" />
+      <workItem from="1691974663606" duration="29489000" />
     </task>
     <servers />
   </component>
