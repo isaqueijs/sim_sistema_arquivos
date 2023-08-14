@@ -50,11 +50,8 @@ public class Memoria {
 
     public void desalocarArquivo(Arquivo arquivo) {
         for (Bloco bloco : getBlocos()) {
-            if (bloco.getArquivo() != null && bloco.getArquivo().equals(arquivo)) {
+            if (bloco.getArquivo().equals(arquivo)) {
                 bloco.setArquivo(null);
-                if (bloco.getProxBloco() != -1) {
-                    getBlocos()[bloco.getProxBloco()].setArquivo(null);
-                }
                 bloco.setProxBloco(-1);
             }
         }
