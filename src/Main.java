@@ -38,7 +38,7 @@ public class Main {
                 case "touch":
                     if (comando.length == 3) {
                         sistema.touch(comando[1], Integer.parseInt(comando[2]), usuario);
-                        System.out.println(sistema.getMemoria());
+                        sistema.printDiscos();
                         break;
                     }
                     System.out.println("O comando touch precisa de 2 parâmetros (nome_arquivo tamanho). ex: 'touch nomearquivo.txt 8'");
@@ -65,7 +65,7 @@ public class Main {
                 case "rm":
                     if (comando.length == 2) {
                         sistema.rm(comando[1]);
-                        System.out.println(sistema.getMemoria());
+                        sistema.printDiscos();
                         break;
                     }
                     System.out.println("O comando rm precisa de 1 parâmetro (nome_arquivo). ex: 'rm nome_arquivo'");
@@ -73,13 +73,13 @@ public class Main {
                 case "rmdir":
                     if (comando.length == 2) {
                         sistema.rmdir(comando[1]);
-                        System.out.println(sistema.getMemoria());
+                        sistema.printDiscos();
                         break;
                     }
                     System.out.println("O comando rmdir precisa de 1 parâmetro (nome_diretório). ex: 'rmdir nome_diretório'");
                     break;
                 case "free":
-                    System.out.println(sistema.getMemoria());
+                    sistema.printDiscos();
                     break;
                 case "clear":
                     clear();

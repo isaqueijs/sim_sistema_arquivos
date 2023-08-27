@@ -1,14 +1,22 @@
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SistemaArquivos {
 
-    private Memoria memoria;
+    private ArrayList<Disco> discos;
+    private int qtdDiscos = 3;
     private Diretorio dir;
     private Diretorio dirRaiz;
 
     public SistemaArquivos(int tamanhoMemoria, int tamanhoBloco, Diretorio dir, Diretorio dirRaiz) {
-        this.memoria = new Memoria(tamanhoMemoria, tamanhoBloco);
+
+        this.discos = new ArrayList<>();
+
+        for (int i = 0; i < this.qtdDiscos; i++) {
+            this.discos.add(new Disco(tamanhoMemoria, tamanhoBloco, i));
+        }
+
         this.dir = dir;
         this.dirRaiz = dirRaiz;
     }
@@ -28,10 +36,7 @@ public class SistemaArquivos {
     public boolean touch(String nome, int tamanho, String proprietario) {
         if (validarNome(nome)) {
             Arquivo arquivo = new Arquivo(nome, tamanho, this.dir.getNome(), proprietario);
-            if (this.memoria.alocarArquivo(arquivo)) {
-                this.dir.adicionarArquivo(arquivo);
-                return true;
-            }
+            if (distribuirArq(arquivo)) return true;
         }
         return false;
     }
@@ -39,7 +44,10 @@ public class SistemaArquivos {
     public boolean rm(String nome) {
         int index = this.dir.existeArquivo(nome);
         if (index > -1) {
-            this.memoria.desalocarArquivo(this.dir.getArquivos().get(index));
+
+            for (Disco disco : discos) {
+                disco.desalocarArquivo(this.dir.getArquivos().get(index));
+            }
             this.dir.getArquivos().remove(index);
             return true;
         }
@@ -49,7 +57,7 @@ public class SistemaArquivos {
 
     public boolean rmdir(String nome) {
         int index = this.dir.existeDiretorio(nome);
-        if (index > -1 ) {
+        if (index > -1) {
             if (this.dir.getSubDiretorios().get(index).getArquivos().size() > 0) {
                 System.out.println("Falha ao remover '" + nome + "':Diretório não está vazio");
                 return false;
@@ -98,12 +106,31 @@ public class SistemaArquivos {
         return matcher.matches();
     }
 
-    public Memoria getMemoria() {
-        return memoria;
+    public boolean distribuirArq(Arquivo arquivo) {
+        if (discos.get(0).alocarArquivo(arquivo) && discos.get(1).alocarArquivo(arquivo)
+                && discos.get(2).alocarArquivo(arquivo)) {
+            this.dir.adicionarArquivo(arquivo);
+            return true;
+        }
+
+        return false;
     }
 
-    public void setMemoria(Memoria memoria) {
-        this.memoria = memoria;
+    public void printDiscos() {
+        System.out.print("--------------------------------------------------------------\nConteúdo dos Discos:");
+        for (Disco disco : getDiscos()) {
+            System.out.println("\n--------------------------------------------------------------");
+            System.out.print(disco.toString());
+        }
+        System.out.println("\n--------------------------------------------------------------");
+    }
+
+    public ArrayList<Disco> getDiscos() {
+        return discos;
+    }
+
+    public void setDiscos(ArrayList<Disco> discos) {
+        this.discos = discos;
     }
 
     public Diretorio getDir() {

@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Memoria {
+public class Disco {
     private int tamanho;
     private Bloco[] blocos;
     private int tamanhoBloco;
+    private int id;
 
-    public Memoria(int tamanho, int tamanhoBloco) {
+    public Disco(int tamanho, int tamanhoBloco, int id) {
         this.tamanho = tamanho;
         this.tamanhoBloco = tamanhoBloco;
         this.blocos = gerarBlocos(tamanhoBloco);
+        this.id = id;
     }
 
     private Bloco[] gerarBlocos(int tamanhoBloco) {
@@ -83,10 +85,18 @@ public class Memoria {
         this.blocos = blocos;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Memoria - " +
-                "tamanho: " + tamanho + "KB" +
-                "\nblocos=" + Arrays.toString(blocos);
+        return "Disco #" + id +
+                " - tamanho: " + tamanho + "KB" +
+                "\nBlocos:\n" + Arrays.toString(blocos);
     }
 }
